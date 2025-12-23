@@ -631,7 +631,7 @@
                     </div>
                 </div>
                 <div class="header-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop" alt="Pravallika Mettukuru" class="profile-image" id="profileImage">
+                    <img src="pravallika-photo.jpg" alt="Pravallika Mettukuru" class="profile-image" id="profileImage">
                 </div>
             </div>
             <div class="scroll-indicator"></div>
@@ -731,7 +731,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="data-cleaning-dashboard.png" alt="Data Quality Dashboard" id="project3Image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="Data Quality Dashboard" id="project3Image">
                 </div>
                 <div class="project-content">
                     <div class="project-number">03</div>
@@ -830,8 +830,11 @@
 
         // Load profile image
         const profileImage = document.getElementById('profileImage');
+        
+        // Fallback to placeholder if your photo is not found
         profileImage.onerror = function() {
-            this.style.display = 'none';
+            console.log('Please add your photo as "pravallika-photo.jpg"');
+            this.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop';
         };
 
         // Load project images with fallback
