@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravallika Mettukuru - Data Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .greeting {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .intro strong {
+            color: #000;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn.secondary {
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin: 80px 0 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .skills-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+        }
+
+        .skill-category li:before {
+            content: "▸ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .projects {
+            display: grid;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .project-card:nth-child(2) .project-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-card:nth-child(3) .project-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-number {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .project-description {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .project-highlights {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .project-highlights ul {
+            list-style: none;
+            color: #555;
+        }
+
+        .project-highlights li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+
+        .project-highlights li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .project-link {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            display: inline-block;
+            margin: 10px 0;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .intro {
+                font-size: 18px;
+            }
+
+            .skills-section {
+                padding: 30px 20px;
+            }
+
+            .project-image {
+                height: 250px;
+                font-size: 50px;
+            }
+
+            .project-content {
+                padding: 30px 20px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="greeting">Hello,</div>
+            <h1>Pravallika Mettukuru</h1>
+            <div class="subtitle">Data Analyst | Healthcare Analytics</div>
+            <div class="intro">
+                I'm a <strong>📊 Data Analyst / Healthcare Analyst</strong> with a Master's in Computer Science and strong expertise in SQL, Power BI, Python, and advanced Excel. Specializing in transforming complex datasets into actionable insights across healthcare, inventory analytics, and operational efficiency.
+                <br><br>
+                All things data: <strong>SQL Optimization. Dashboard Development. Process Automation.</strong> Yep, I do them all.
+                <br><br>
+                Let's create data-driven solutions that are not just functional but also transformative. Solutions that improve efficiency, accuracy, and decision-making.
+            </div>
+            <div class="tagline">Turning data into insights, insights into action! 🚀</div>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="#" class="btn secondary">Download Resume</a>
+            </div>
+        </header>
+
+        <div class="skills-section">
+            <h2 style="text-align: center; margin-bottom: 20px;">Core Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>📊 Data Analysis & Visualization</h3>
+                    <ul>
+                        <li>Power BI Dashboards</li>
+                        <li>Python (Pandas, Matplotlib)</li>
+                        <li>Advanced Excel</li>
+                        <li>Trend Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>💾 Databases & SQL</h3>
+                    <ul>
+                        <li>SQL Server, MySQL, PostgreSQL</li>
+                        <li>Complex Queries & JOINs</li>
+                        <li>Data Extraction & ETL</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>🏥 Healthcare Analytics</h3>
+                    <ul>
+                        <li>Healthcare Data Management</li>
+                        <li>HIPAA Compliance</li>
+                        <li>KPI Reporting</li>
+                        <li>Inventory Analytics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>⚡ Key Achievements</h3>
+                    <ul>
+                        <li>30% increase in reporting accuracy</li>
+                        <li>40% reduction in manual effort</li>
+                        <li>1,000+ records managed</li>
+                        <li>Cross-functional collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-image">📈</div>
+                <div class="project-content">
+                    <div class="project-number">01</div>
+                    <h3 class="project-title">Customer Sales Analysis</h3>
+                    <p class="project-description">
+                        Comprehensive sales analytics solution integrating multiple database tables to deliver end-to-end reporting and actionable business insights through advanced SQL techniques and Python visualizations.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Extracted and integrated data from 3 related database tables using SQL JOINs and views</li>
+                            <li>Achieved 30% increase in reporting efficiency and accuracy through optimized queries</li>
+                            <li>Developed Python-based visualizations analyzing sales trends and customer behavior</li>
+                            <li>Recommended inventory optimization strategies based on purchasing patterns</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="project-link">View details →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🩸</div>
+                <div class="project-content">
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">Blood Donation Management System</h3>
+                    <p class="project-description">
+                        Enterprise-grade inventory tracking and analytics platform designed for healthcare operations, managing 1,000+ records while delivering real-time insights through automated dashboards and KPI monitoring.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Designed MySQL-based system managing 1,000+ records with high data integrity</li>
+                            <li>Built interactive Power BI dashboards monitoring inventory and donation trends</li>
+                            <li>Reduced manual reporting time by 40% through automation</li>
+                            <li>Collaborated with stakeholders to align analytics with healthcare objectives</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="project-link">View details →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🔍</div>
+                <div class="project-content">
+                    <div class="project-number">03</div>
+                    <h3 class="project-title">Data Cleaning & Analysis Project</h3>
+                    <p class="project-description">
+                        Large-scale data quality initiative processing demographic, scheduling, and transactional data from multiple sources, establishing standardized procedures for data validation and consistency.
+                    </p>
+                    <div class="project-highlights">
+                        <ul>
+                            <li>Processed large datasets from multiple sources ensuring data accuracy</li>
+                            <li>Developed complex SQL queries to validate and generate clean datasets</li>
+                            <li>Conducted exploratory analysis using Excel pivot tables and advanced formulas</li>
+                            <li>Implemented standardized cleaning procedures for ongoing consistency</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="project-link">View details →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <h2>Let's Connect!</h2>
+        <div class="contact-info">
+            <a href="mailto:pravallikareddy9100@gmail.com">pravallikareddy9100@gmail.com</a><br>
+            <a href="tel:8565269329">(856) 526-9329</a>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/mpravallikareddy/" target="_blank" class="btn">LinkedIn Profile</a>
+            <a href="#" class="btn secondary">Download Resume</a>
+        </div>
+        <p style="margin-top: 40px; opacity: 0.7; font-size: 14px;">Based in New Jersey, NJ</p>
+    </footer>
+</body>
+</html>
+```
+
+---
+
+## **PART 4: SAVE THE CODE AS A FILE**
+
+### **On Windows:**
+1. Open **Notepad** (search "notepad" in Start menu)
+2. Copy ALL the code above (from `<!DOCTYPE html>` to `</html>`)
+3. Paste it into Notepad
+4. Click **File → Save As**
+5. At the bottom, change **"Save as type"** to **"All Files"**
+6. Name it: `index.html` (exactly like this)
+7. Save it to your **Desktop** (easy to find)
+
+### **On Mac:**
+1. Open **TextEdit**
+2. Click **Format → Make Plain Text** (important!)
+3. Copy ALL the code above
+4. Paste it into TextEdit
+5. Click **File → Save**
+6. Name it: `index.html`
+7. Save to your **Desktop**
+
+---
+
+## **PART 5: UPLOAD TO GITHUB**
+
+1. Go back to **GitHub** in your browser
+2. You should see your repository page (yourusername.github.io)
+3. Click **"Add file"** button (top right area)
+4. Click **"Upload files"**
+5. You'll see a box that says "Drag files here"
+6. **Drag your `index.html` file** from Desktop into this box
+   - OR click **"choose your files"** and select it
+7. Scroll down to the bottom
+8. Click the green **"Commit changes"** button
+
+---
+
+## **PART 6: ENABLE GITHUB PAGES**
+
+1. Click **"Settings"** (top menu bar of your repository)
+2. In the left sidebar, click **"Pages"**
+3. Under **"Branch"**:
+   - Click the dropdown that says "None"
+   - Select **"main"**
+   - Keep the folder as **"/ (root)"**
+4. Click **"Save"**
+5. You'll see a message at the top with your URL!
+
+---
+
+## **PART 7: VIEW YOUR LIVE WEBSITE! 🎉**
+
+1. Wait **2-3 minutes** for GitHub to build your site
+2. Go to: `https://yourusername.github.io`
+   - Replace "yourusername" with YOUR actual GitHub username
+3. **Your portfolio is now LIVE on the internet!**
+
+---
+
+## **WHAT YOUR URL WILL LOOK LIKE:**
+
+If your GitHub username is `pravallikam`, your website will be:
+```
+https://pravallikam.github.io
